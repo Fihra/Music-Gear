@@ -28,7 +28,7 @@ void MyGear(vector<Gear> *myGear)
 	//cout <<  << endl;
 
 	//myGear.push_back(*mic);
-	cout << myGear->size();
+	cout << myGear->size() << endl;
 
 
 	for (Gear g : *myGear)
@@ -47,10 +47,13 @@ void AddNewGear(vector<Gear> *myGear)
 	cout << "Add new gear Form" << endl;
 	cout << "Name of Gear: ";
 	cin >> gearName;
+	getline(cin, gearName);
+	//cin >> gearName;
 	cout << "How much did it cost: ";
 	cin >> cost;
 	cout << "Type of gear: ";
 	cin >> gearType;
+	getline(cin, gearType);
 
 	Gear *newItem = new Gear(gearName, cost, gearType);
 	myGear->push_back(*newItem);
