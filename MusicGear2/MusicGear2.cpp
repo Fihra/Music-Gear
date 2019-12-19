@@ -5,6 +5,8 @@
 #include "Person.h"
 #include <iostream>
 #include <string>
+#include <vector>
+
 using namespace std;
 
 void MainMenu() 
@@ -18,6 +20,9 @@ void MainMenu()
 
 int main()
 {
+	vector<string> myList;
+	
+
 	Person p;
 	string name_input;
 	string choice;
@@ -66,6 +71,16 @@ int main()
 				isLooping = false;
 				break;
 		}
+	}
+
+
+	myList.push_back("Guitar");
+	myList.push_back("Microphone");
+	myList.push_back("Focusrite");
+
+	for (string i : myList)
+	{
+		cout << "i = " << i << endl;
 	}
 
 	cout << "Thank you for using the menu gear app";
