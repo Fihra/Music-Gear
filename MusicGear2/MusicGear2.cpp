@@ -19,16 +19,47 @@ void MainMenu()
 	cout << "4) Exit" << endl;
 }
 
-void ShowGear()
+void MyGear(vector<Gear> *myGear)
 {
+	//vector<Gear> myGear;
 
+	//Gear *mic = new Gear("SM57", 80, "Microphone");
+	//mic->ShowGearInfo();
+	//cout <<  << endl;
+
+	//myGear.push_back(*mic);
+	cout << myGear->size();
+
+
+	for (Gear g : *myGear)
+	{
+		g.ShowGearInfo();
+	}
+
+}
+
+void AddNewGear(vector<Gear> *myGear)
+{
+	string gearName;
+	int cost;
+	string gearType;
+
+	cout << "Add new gear Form" << endl;
+	cout << "Name of Gear: ";
+	cin >> gearName;
+	cout << "How much did it cost: ";
+	cin >> cost;
+	cout << "Type of gear: ";
+	cin >> gearType;
+
+	Gear *newItem = new Gear(gearName, cost, gearType);
+	myGear->push_back(*newItem);
+	cout << myGear->size();
 }
 
 int main()
 {
-	vector<string> myList;
 	vector<Gear> myGear;
-	
 
 	Person p;
 	string name_input;
@@ -65,10 +96,10 @@ int main()
 		switch (menuChoice)
 		{
 			case 1:
-				cout << "Showing gear" << endl;
+				MyGear(&myGear);
 				break;
 			case 2:
-				cout << "Add new gear" << endl;
+				AddNewGear(&myGear);
 				break;
 			case 3:
 				cout << "Query gear" << endl;
@@ -80,28 +111,7 @@ int main()
 		}
 	}
 	
-	Gear *mic = new Gear("SM57", 80, "Microphone");
-	//mic->ShowGearInfo();
-	//cout <<  << endl;
-
-	myGear.push_back(*mic);
-
-	for (Gear g : myGear)
-	{
-		g.ShowGearInfo();
-	}
-
-	//myList.push_back("Guitar");
-	//myList.push_back("Microphone");
-	//myList.push_back("Focusrite");
-
-	//for (string i : myList)
-	//{
-	//	cout << "i = " << i << endl;
-	//}
-
 	cout << "Thank you for using the menu gear app";
 	
-
 	return 0;
 }
