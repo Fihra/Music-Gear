@@ -3,6 +3,7 @@
 
 #include "pch.h"
 #include "Person.h"
+#include "Gear.h"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -18,9 +19,15 @@ void MainMenu()
 	cout << "4) Exit" << endl;
 }
 
+void ShowGear()
+{
+
+}
+
 int main()
 {
 	vector<string> myList;
+	vector<Gear> myGear;
 	
 
 	Person p;
@@ -72,16 +79,26 @@ int main()
 				break;
 		}
 	}
+	
+	Gear *mic = new Gear("SM57", 80, "Microphone");
+	//mic->ShowGearInfo();
+	//cout <<  << endl;
 
+	myGear.push_back(*mic);
 
-	myList.push_back("Guitar");
-	myList.push_back("Microphone");
-	myList.push_back("Focusrite");
-
-	for (string i : myList)
+	for (Gear g : myGear)
 	{
-		cout << "i = " << i << endl;
+		g.ShowGearInfo();
 	}
+
+	//myList.push_back("Guitar");
+	//myList.push_back("Microphone");
+	//myList.push_back("Focusrite");
+
+	//for (string i : myList)
+	//{
+	//	cout << "i = " << i << endl;
+	//}
 
 	cout << "Thank you for using the menu gear app";
 	
