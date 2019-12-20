@@ -43,16 +43,15 @@ void AddNewGear(vector<Gear> *myGear)
 	string gearName;
 	int cost;
 	string gearType;
-
 	cout << "Add new gear Form" << endl;
+	cin.ignore();
 	cout << "Name of Gear: ";
-	cin >> gearName;
 	getline(cin, gearName);
-	//cin >> gearName;
+
 	cout << "How much did it cost: ";
 	cin >> cost;
+	cin.ignore();
 	cout << "Type of gear: ";
-	cin >> gearType;
 	getline(cin, gearType);
 
 	Gear *newItem = new Gear(gearName, cost, gearType);
