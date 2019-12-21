@@ -19,6 +19,39 @@ void MainMenu()
 	cout << "4) Exit" << endl;
 }
 
+string GearTypeSelection()
+{
+	int gearInput;
+
+	string gearChoices[6] = {
+		"Instrument", "Amplifier", "Hardware", "Software", "Book", "Accessory"
+	};
+		
+
+	cout << "Type of gear: " << endl;
+	//for (size_t i = 0; i < gearChoices->size(); i++)
+	//{
+	//	cout << i + 1 << ") " << gearChoices[i] << endl;
+	//}
+	int count = 1;
+	for (string gC : gearChoices)
+	{
+		cout << count << ") " << gC << endl;
+		count++;
+	}
+	cout << "Enter choice: ";
+	cin >> gearInput;
+
+	return gearChoices[gearInput -1];
+
+	//cout << "1) Instrument" << endl;
+	//cout << "2) Amplifier" << endl;
+	//cout << "3) Hardware" << endl;
+	//cout << "4) Software" << endl;
+	//cout << "5) Book" << endl;
+	//cout << "6) Accessory" << endl;
+}
+
 void MyGear(vector<Gear> *myGear)
 {
 	//vector<Gear> myGear;
@@ -43,6 +76,7 @@ void AddNewGear(vector<Gear> *myGear)
 	string gearName;
 	int cost;
 	string gearType;
+	string gearChoice;
 	cout << "Add new gear Form" << endl;
 	cin.ignore();
 	cout << "Name of Gear: ";
@@ -51,12 +85,29 @@ void AddNewGear(vector<Gear> *myGear)
 	cout << "How much did it cost: ";
 	cin >> cost;
 	cin.ignore();
-	cout << "Type of gear: ";
-	getline(cin, gearType);
+	gearChoice = GearTypeSelection();
+	//getline(cin, gearType);
+	//cin >> gearChoice;
 
-	Gear *newItem = new Gear(gearName, cost, gearType);
+
+	Gear *newItem = new Gear(gearName, cost, gearChoice);
 	myGear->push_back(*newItem);
 	cout << myGear->size();
+}
+
+void QueryMenu()
+{
+	cout << "Query Menu" << endl;
+	cout << "1) Total amount spent" << endl;
+	cout << "2) Show by Type" << endl;
+	cout << "3) Show Alphabetical" << endl;
+	cout << "4) Show Most expensive to cheapest" << endl;
+	cout << "5) Back" << endl;
+}
+
+void QueryGear(vector<Gear> *myGear)
+{
+
 }
 
 int main()
@@ -104,7 +155,7 @@ int main()
 				AddNewGear(&myGear);
 				break;
 			case 3:
-				cout << "Query gear" << endl;
+				QueryGear(&myGear);
 				break;
 			case 4:
 				cout << "Exiting" << endl;

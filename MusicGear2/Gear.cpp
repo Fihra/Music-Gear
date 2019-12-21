@@ -14,8 +14,9 @@ Gear::Gear(string gName, int gPrice, string gType)
 void Gear::ShowGearInfo()
 {
 	cout << "Name: " << name << endl;
-	cout << "Price: " << price << endl;
+	cout << "Price: $" << price << endl;
 	cout << "Type: " << type << endl;
+	cout << endl;
 
 }
 
