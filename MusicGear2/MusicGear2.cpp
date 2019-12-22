@@ -97,16 +97,49 @@ void AddNewGear(vector<Gear> *myGear)
 
 void QueryMenu()
 {
+	
 	cout << "Query Menu" << endl;
 	cout << "1) Total amount spent" << endl;
 	cout << "2) Show by Type" << endl;
 	cout << "3) Show Alphabetical" << endl;
 	cout << "4) Show Most expensive to cheapest" << endl;
 	cout << "5) Back" << endl;
+	cout << "Choice: ";
 }
 
 void QueryGear(vector<Gear> *myGear)
 {
+	bool isLooping = true;
+	int queryChoice;
+
+	do
+	{
+		QueryMenu();
+		cin >> queryChoice;
+		int total = 0;
+		switch (queryChoice)
+		{
+		case 1:
+			
+			for (Gear g : *myGear)
+			{
+				total += g.ShowGearPrice();
+			}
+			cout << "Total Spent: $" << total;
+			break;
+		case 2:
+			cout << "Sort by Type" << endl;
+			break;
+		case 3:
+			cout << "Show alphabetical" << endl;
+		case 4:
+			cout << "show most expensive" << endl;
+			break;
+		case 5:
+			isLooping = false;
+			break;
+		}
+	} while (isLooping);
 
 }
 

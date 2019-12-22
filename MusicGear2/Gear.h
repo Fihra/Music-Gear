@@ -12,6 +12,7 @@ private:
 public:
 	Gear(string gName, int gPrice, string gType);
 	void ShowGearInfo();
+	int ShowGearPrice();
 	~Gear();
 };
 

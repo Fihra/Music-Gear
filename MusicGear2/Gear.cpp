@@ -20,6 +20,11 @@ void Gear::ShowGearInfo()
 
 }
 
+int Gear::ShowGearPrice()
+{
+	return price;
+}
+
 Gear::~Gear()
 {
 }
